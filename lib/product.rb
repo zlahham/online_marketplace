@@ -3,7 +3,7 @@ module EPOS
     attr_reader :code, :name, :price
 
     def initialize(options = {})
-      @code = options.fetch(:code)
+      @code = options.fetch(:code) # if options[:code].is_a? Fixnum
       @name = options.fetch(:name)
       @price = options.fetch(:price)
     end
