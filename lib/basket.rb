@@ -10,12 +10,35 @@ module EPOS
       @content = []
     end
 
-    def add(id)
+    def add(code)
       content << Product.new(
-        code: id,
-        name: PRODUCTS[id][:name],
-        price: PRODUCTS[id][:price]
-      )
+        code: code,
+        name: PRODUCTS[code][:name],
+        price: PRODUCTS[code][:price])
+    end
+
+    def remove(code)
+      fail 'Basket is empty' if total_items == 0
+      content.each_with_index do |item, i|
+        next unless item.code == code
+        content.delete_at(i)
+        break
+      end
+    end
+
+    def total_items
+      content.count
+    end
+
+    private
+
+    def number_of_items(code)
+      count = 0
+      content.each do |item|
+        next unless item.code == code
+        count += 1
+      end
+      count
     end
   end
 end

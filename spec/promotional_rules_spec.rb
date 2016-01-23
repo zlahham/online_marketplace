@@ -1,9 +1,10 @@
 module EPOS
   describe PromotionalRules do
-    context '#spending_over_sixty' do
-      let(:total)    { PromotionalRules::DISCOUNT_THRESHOLD }
-      let(:discount) { 1 - PromotionalRules::DISCOUNT }
+    let(:total)    { PromotionalRules::DISCOUNT_THRESHOLD }
+    let(:discount) { 1 - PromotionalRules::DISCOUNT }
+    let(:basket)   { Basket.new }
 
+    context '#spending_over_sixty' do
       it 'applies a discount of 10% to totals over £60' do
         total_over = total + 5
         expect(subject.spending_over_sixty(total_over)).to eq total_over * discount
@@ -15,6 +16,13 @@ module EPOS
       it 'does not apply a discount to totals less than £60' do
         total_under = rand 1..60
         expect(subject.spending_over_sixty(total_under)).to be_nil
+      end
+    end
+
+    context '#lavender_hearts_promotion' do
+      it 'lowers the price of lavender hearts to £8.50' do
+        basket.add('001')
+        expect(subject.lavender_hearts_promotion(lavender)).to eq 8.50
       end
     end
   end
