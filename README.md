@@ -1,8 +1,7 @@
 ##Online Marketplace in Ruby
-----------------------------
 
-###Summary
-----------
+Summary
+-------
 This is a command-line app that allows a client to checkout items with promotional rules, built in the Ruby language.
 
 
