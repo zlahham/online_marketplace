@@ -2,13 +2,12 @@ require 'yaml'
 
 module EPOS
   class Basket
-    attr_accessor :content, :product_list
+    attr_accessor :content
 
     PRODUCTS = YAML.load_file('product_list.yml')
 
     def initialize
       @content = []
-      @product_list = PRODUCTS
     end
 
     def add(id)
