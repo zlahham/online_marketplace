@@ -1,10 +1,11 @@
 module EPOS
   class Product
-    attr_reader :name, :code
+    attr_reader :code, :name, :price
 
     def initialize(options = {})
-      @name = options.fetch(:name)
       @code = options.fetch(:code)
+      @name = options.fetch(:name)
+      @price = options.fetch(:price)
     end
   end
 end
