@@ -1,4 +1,4 @@
-##Online Marketplace in Ruby
+#Online Marketplace in Ruby
 
 Summary
 -------
@@ -7,19 +7,19 @@ This is a command-line app that allows a client to checkout items with promotion
 
 
 
-###Challenges & Learning Outcomes
----------------------------------
+Challenges & Learning Outcomes
+------------------------------
 
 
 
 
-###Future Plans
----------------
+Future Plans
+------------
 
 
 
-###Installation
----------------
+Installation
+------------
 ```
 git clone git@github.com:zlahham/online_marketplace.git
 or
@@ -35,8 +35,8 @@ bin/epos
 
 ---
 
-###Testing
-----------
+Testing
+-------
 ```
 git clone git@github.com:zlahham/online_marketplace.git
 or
