@@ -7,10 +7,13 @@ module EPOS
       basket_total * (1 - DISCOUNT) if over_sixty?(basket_total)
     end
 
-    def lavender_hearts_promotion(basket_total)
-      8.5
-      # if two_or_more?(basket_total)
-      # end
+    def lavender_hearts_promotion(basket, code)
+      if basket.number_of_items(code) >= 2
+        basket.content.map do |item|
+          next unless item.code == code
+          item.price = 8.50
+        end
+      end
     end
 
     private
@@ -18,11 +21,5 @@ module EPOS
     def over_sixty?(total)
       return true if total > 60
     end
-
-    def two_or_more?(total)
-      return true if total >= 2
-    end
-
-    # If you buy 2 or more lavender hearts then the price drops to 8-50
   end
 end

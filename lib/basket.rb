@@ -30,8 +30,6 @@ module EPOS
       content.count
     end
 
-    private
-
     def number_of_items(code)
       count = 0
       content.each do |item|

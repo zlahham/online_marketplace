@@ -1,6 +1,7 @@
 module EPOS
   class Product
-    attr_reader :code, :name, :price
+    attr_reader :code, :name
+    attr_accessor :price
 
     def initialize(options = {})
       @code = options.fetch(:code) # if options[:code].is_a? Fixnum

@@ -22,7 +22,9 @@ module EPOS
     context '#lavender_hearts_promotion' do
       it 'lowers the price of lavender hearts to £8.50' do
         basket.add('001')
-        expect(subject.lavender_hearts_promotion(lavender)).to eq 8.50
+        basket.add('001')
+        subject.lavender_hearts_promotion(basket, '001')
+        expect(basket.content.first.price).to eq 8.50
       end
     end
   end
