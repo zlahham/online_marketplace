@@ -1,6 +1,6 @@
 module EPOS
   class Checkout
-    attr_reader   :rules, :basket
+    attr_reader :rules, :basket
     attr_accessor :total_price
 
     def initialize(rules = PromotionalRules.new, basket = Basket.new)
@@ -11,12 +11,24 @@ module EPOS
 
     def scan(item_code)
       basket.add(item_code)
-      @total_price += basket.content.last.price
+      rules.lavender_hearts_promotion(basket)
+    end
+
+    # TEST THIS
+    def un_scan(item_code)
+      basket.remove(item_code)
+      rules.lavender_hearts_promotion(basket)
     end
 
     def total
-      # rules.spending_over_sixty(total)
-      # rules.lavender_hearts_promotion(basket, item_code)
+      basket.content.each { |item| @total_price += item.price }
+      @total_price > PromotionalRules::DISCOUNT_THRESHOLD ? apply_rules.round(2) : total_price.round(2)
+    end
+
+    private
+
+    def apply_rules
+      rules.spending_over_sixty(@total_price)
     end
   end
 end

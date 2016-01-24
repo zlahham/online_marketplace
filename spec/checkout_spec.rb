@@ -22,11 +22,33 @@ module EPOS
     end
 
     context '#total' do
-      xit 'returns the total cost with regards to promotional_rules' do
+      it 'returns the total cost with regards to lavender' do
         subject.scan('001')
         subject.scan('001')
         subject.scan('001')
         expect(subject.total).to eq 25.5
+      end
+
+      it 'returns the total cost with regards to over 60' do
+        subject.scan('001')
+        subject.scan('002')
+        subject.scan('003')
+        expect(subject.total).to eq 66.78
+      end
+
+      it 'returns the total cost with regards to promotional_rules' do
+        subject.scan('001')
+        subject.scan('003')
+        subject.scan('001')
+        expect(subject.total).to eq 36.95
+      end
+
+      it 'returns the total cost with regards to promotional_rules' do
+        subject.scan('001')
+        subject.scan('002')
+        subject.scan('001')
+        subject.scan('003')
+        expect(subject.total).to eq 73.76
       end
     end
   end
