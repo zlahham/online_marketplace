@@ -9,6 +9,7 @@ module EPOS
         total_over = total + 5
         expect(subject.spending_over_sixty(total_over)).to eq total_over * discount
       end
+
       it 'does not apply a discount to totals of £60' do
         expect(subject.spending_over_sixty(total)).to be_nil
       end

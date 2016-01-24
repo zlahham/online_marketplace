@@ -15,12 +15,19 @@ module EPOS
     end
 
     context '#scan' do
-      it 'allows us to add the item to the checkout basket' do
+      it 'allows to add the item to the checkout basket' do
         subject.scan('001')
         expect(subject.basket.content.first.code).to eq '001'
       end
     end
 
+    context '#unscan' do
+      it 'allows to remove the item from the checkout basket' do
+        subject.scan('001')
+        subject.un_scan('001')
+        expect(subject.basket.content).to be_empty
+      end
+    end
     context '#total' do
       let(:lavendar_cheap) { PromotionalRules::LAVENDER_PROMOTION }
 

@@ -14,7 +14,6 @@ module EPOS
       rules.lavender_hearts_promotion(basket)
     end
 
-    # TEST THIS
     def un_scan(item_code)
       basket.remove(item_code)
       rules.lavender_hearts_promotion(basket)
