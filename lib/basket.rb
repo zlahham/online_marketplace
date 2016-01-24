@@ -11,7 +11,7 @@ module EPOS
     def initialize
       @content = []
     end
-
+    
     def add(code)
       content << Product.new(
         code: code,
