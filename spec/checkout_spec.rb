@@ -22,11 +22,13 @@ module EPOS
     end
 
     context '#total' do
+      let(:lavendar_cheap) { PromotionalRules::LAVENDER_PROMOTION }
+
       it 'returns the total cost with regards to lavender' do
         subject.scan('001')
         subject.scan('001')
         subject.scan('001')
-        expect(subject.total).to eq 25.5
+        expect(subject.total).to eq lavendar_cheap * 3
       end
 
       it 'returns the total cost with regards to over 60' do
@@ -43,7 +45,7 @@ module EPOS
         expect(subject.total).to eq 36.95
       end
 
-      it 'returns the total cost with regards to promotional_rules' do
+      it 'returns the total cost with regards to both promotional_rules' do
         subject.scan('001')
         subject.scan('002')
         subject.scan('001')
