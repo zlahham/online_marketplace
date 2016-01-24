@@ -4,7 +4,7 @@ module EPOS
     attr_accessor :price
 
     def initialize(options = {})
-      @code = options.fetch(:code) # if options[:code].is_a? Fixnum
+      @code = options.fetch(:code)
       @name = options.fetch(:name)
       @price = options.fetch(:price)
     end

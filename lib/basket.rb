@@ -5,6 +5,8 @@ module EPOS
     attr_accessor :content
 
     PRODUCTS = YAML.load_file('product_list.yml')
+    ONE      = 1
+    ZERO     = 0
 
     def initialize
       @content = []
@@ -18,7 +20,7 @@ module EPOS
     end
 
     def remove(code)
-      fail 'Basket is empty' if total_items == 0
+      fail 'Basket is empty' if total_items == ZERO
       content.each_with_index do |item, i|
         next unless item.code == code
         content.delete_at(i)
@@ -31,10 +33,10 @@ module EPOS
     end
 
     def number_of_items(code)
-      count = 0
+      count = ZERO
       content.each do |item|
         next unless item.code == code
-        count += 1
+        count += ONE
       end
       count
     end

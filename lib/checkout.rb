@@ -20,6 +20,7 @@ module EPOS
     end
 
     def total
+      @total_price = 0
       basket.content.each { |item| @total_price += item.price }
       @total_price > PromotionalRules::DISCOUNT_THRESHOLD ? apply_rules.round(2) : total_price.round(2)
     end

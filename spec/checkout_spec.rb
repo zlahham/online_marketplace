@@ -21,7 +21,7 @@ module EPOS
       end
     end
 
-    context '#unscan' do
+    context '#un_scan' do
       it 'allows to remove the item from the checkout basket' do
         subject.scan('001')
         subject.un_scan('001')
