@@ -4,17 +4,19 @@ Summary
 -------
 This is a command-line app that allows a client to checkout items with promotional rules, built in the Ruby language.
 
-
-
-
 Challenges & Learning Outcomes
 ------------------------------
-*Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.*
+I particularly enjoyed building something from the ground up in Ruby again, while test driving the whole project.
+
+I made sure that I used `guard` to help me TDD as efficiently as possible. As a result, I found that by using `guard`, I saved a lot of time when cleaning up and refactoring.
+
+I constructed the program in a way to make it as easy as possible for a 'non-technical' team member to add/remove/ammend products, by introducing a Yaml file (`product_list.yml`) with all the the relevant data. In theory, this will not affect anything inside the logic, other than the promotional rules.
 
 Future Plans
 ------------
-*Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.*
-
+- Implement a more complex version with more rules
+- Build this with Rails
+- Pull in external data from an API to populate the products
 
 Installation
 ------------
@@ -26,12 +28,8 @@ git clone https://github.com/zlahham/online_marketplace.git
 cd online_marketplace
 
 bundle
-
-bin/epos
 ```
 **Enjoy!**
-
-
 
 Testing
 -------
