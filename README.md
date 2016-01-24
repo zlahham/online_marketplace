@@ -1,5 +1,10 @@
 #Online Marketplace in Ruby
 
+
+[![Build Status](https://travis-ci.org/zlahham/online_marketplace.svg?branch=master)](https://travis-ci.org/zlahham/online_marketplace)
+
+[![Coverage Status](https://coveralls.io/repos/github/zlahham/online_marketplace/badge.svg?branch=master)](https://coveralls.io/github/zlahham/online_marketplace?branch=master)
+
 Summary
 -------
 This is a command-line app that allows a client to checkout items with promotional rules, built in the Ruby language.
