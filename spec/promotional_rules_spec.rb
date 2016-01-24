@@ -26,6 +26,12 @@ module EPOS
         subject.lavender_hearts_promotion(basket, '001')
         expect(basket.content.first.price).to eq 8.50
       end
+
+      it 'does not lower prices if less than two items' do
+        basket.add('001')
+        subject.lavender_hearts_promotion(basket, '001')
+        expect(basket.content.first.price).to eq 9.25
+      end
     end
   end
 end
