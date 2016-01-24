@@ -6,7 +6,7 @@ module EPOS
     def initialize(rules = PromotionalRules.new, basket = Basket.new)
       @rules       = rules
       @basket      = basket
-      @total_price = 0
+      @total_price = Basket::ZERO
     end
 
     def scan(item_code)
@@ -20,15 +20,20 @@ module EPOS
     end
 
     def total
-      @total_price = 0
+      @total_price = Basket::ZERO
       basket.content.each { |item| @total_price += item.price }
-      @total_price > PromotionalRules::DISCOUNT_THRESHOLD ? apply_rules.round(2) : total_price.round(2)
+      apply_rules_to_price
     end
 
     private
 
-    def apply_rules
-      rules.spending_over_sixty(@total_price)
+    def apply_rules_to_price
+      final_price = rules.spending_over_sixty(@total_price)
+      price_greater_than_promotions ? final_price.round(2) : total_price.round(2)
+    end
+
+    def price_greater_than_promotions
+      @total_price > PromotionalRules::DISCOUNT_THRESHOLD
     end
   end
 end

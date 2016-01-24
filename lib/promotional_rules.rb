@@ -12,7 +12,7 @@ module EPOS
     end
 
     def lavender_hearts_promotion(basket)
-      items_more_than_limit?(basket) ? apply_new_pricing(basket, CODE) : apply_old_pricing(basket, CODE)
+      items_more_than_limit?(basket) ? new_pricing(basket, CODE) : old_pricing(basket, CODE)
     end
 
     private
@@ -21,14 +21,14 @@ module EPOS
       return true if total > DISCOUNT_THRESHOLD
     end
 
-    def apply_new_pricing(basket, code)
+    def new_pricing(basket, code)
       basket.content.map do |item|
         next unless item.code == code
         item.price = LAVENDER_PROMOTION
       end
     end
 
-    def apply_old_pricing(basket, code)
+    def old_pricing(basket, code)
       basket.content.map do |item|
         next unless item.code == code
         item.price = LAVENDER_PRICE

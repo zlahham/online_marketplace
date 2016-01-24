@@ -8,8 +8,9 @@ module EPOS
 
     context '#spending_over_sixty' do
       it 'applies a discount of 10% to totals over £60' do
-        total_over = total + 5
-        expect(subject.spending_over_sixty(total_over)).to eq total_over * discount
+        upper_total = total + 5
+        discount_total = upper_total * discount
+        expect(subject.spending_over_sixty(upper_total)).to eq discount_total
       end
 
       it 'does not apply a discount to totals of £60' do
